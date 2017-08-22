@@ -6,7 +6,6 @@ def sundaran(limit):
     """ sundaran sieve the primes """
 
     possible_primes = {}
-
     for i in range(1,limit):
         for j in range(i,limit):
             num = i+j+(2*i*j)
@@ -15,7 +14,8 @@ def sundaran(limit):
             else:
                 break
 
-    primes = [2]
+    # skipped by sieve
+    primes = [2,3,5]
     for i in range(3,limit):
         if not i in possible_primes:
             if(i*2+1 > limit):
@@ -23,11 +23,12 @@ def sundaran(limit):
             primes.append(i*2+1)
 
     # don't print the list to not waste time in stdout
-    print(primes[-1:])
+    print(len(primes))
+    print(primes)
 
 
 
 
 if __name__ == '__main__':
-    limit = 20000000
+    limit = 1000
     sundaran(limit)
