@@ -2,6 +2,33 @@
 import sys, os
 
 
+def eratosthenes(limit):
+    """ sieve of Eratosthenes """
+    possible_primes = {}
+
+    for i in range(2,limit):
+        possible_primes[i] = True
+
+    sqrtlimit = int(limit ** (1 / 2))
+    print(sqrtlimit)
+    for i in range(2, sqrtlimit+1):
+        if possible_primes[i]:
+            j = int(i**2)
+            x = 0
+            while j < limit:
+                # -2 to correct for array index
+                possible_primes[j] = False
+                j = int((i**2) + (x*i))
+                x += 1
+
+    primes = []
+    for i in range(2,limit):
+        if possible_primes[i]:
+            primes.append(i)
+
+
+    print("last prime " + str(primes[-1:]))
+
 def sundaram(limit):
     """ sundaran sieve the primes """
 
@@ -29,5 +56,5 @@ def sundaram(limit):
 
 
 if __name__ == '__main__':
-    limit = 1000
-    sundaram(limit)
+    limit = 20000000
+    eratosthenes(limit)
