@@ -2,7 +2,7 @@
 import sys, os
 
 
-def sundaran(limit):
+def sundaram(limit):
     """ sundaran sieve the primes """
 
     possible_primes = {}
@@ -30,4 +30,4 @@ def sundaran(limit):
 
 if __name__ == '__main__':
     limit = 1000
-    sundaran(limit)
+    sundaram(limit)
